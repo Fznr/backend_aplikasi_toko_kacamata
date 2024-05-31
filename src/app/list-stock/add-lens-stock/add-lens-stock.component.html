@@ -1,0 +1,16 @@
+<form (ngSubmit)="addLens()">
+    <h3>Add Lens</h3>
+    <label for="lensSphere">Sphere:</label>
+    <input type="number" id="lensSphere" [(ngModel)]="lens.sphere" name="lensSphere" required>
+    
+    <label for="lensCylinder">Cylinder:</label>
+    <input type="number" id="lensCylinder" [(ngModel)]="lens.cylinder" name="lensCylinder" required>
+
+    <label for="lensPrice">Price:</label>
+    <input type="text" id="lensPrice" [(ngModel)]="lens.price" name="lensPrice" required>
+
+    <label for="lensStock">Stock:</label>
+    <input type="number" id="lensStock" [(ngModel)]="lens.stock" name="lensStock" required>
+    
+    <button type="submit">Add Lens</button>
+  </form>

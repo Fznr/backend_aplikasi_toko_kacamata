@@ -1,0 +1,48 @@
+<div class="tables">
+    <div style="width: 47%;">
+        <button type="button" (click)="redirectToFrameStock()" style="margin-bottom: 5px;">Add Frame Stock</button>
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr class="stdr-thead tr-bulk-head">
+                <th scope="row">{{ 'No' }}</th>
+                <th scope="row">{{ 'Brand' }}</th>
+                <th scope="row">{{ 'Frame Type' }}</th>
+                <th scope="row">{{ 'Price' }}</th>
+                <th scope="row">{{ 'Stock' }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="table-bulk-list" *ngFor="let data of frameDatas; let i = index;">
+                <td class="no">{{i + 1}}</td>
+                <td>{{data.brand}}</td>
+                <td>{{data.frameType}}</td>
+                <td>{{data.price}}</td>
+                <td>{{data.stock}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="width: 47%;">
+        <button type="button" (click)="redirectToLensStock()" style="margin-bottom: 5px;">Add Lens Stock</button>
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr class="stdr-thead tr-bulk-head">
+                <th scope="row">{{ 'No' }}</th>
+                <th scope="row">{{ 'Sphere' }}</th>
+                <th scope="row">{{ 'Cylinder' }}</th>
+                <th scope="row">{{ 'Price' }}</th>
+                <th scope="row">{{ 'Stock' }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="table-bulk-list" *ngFor="let data of lensDatas; let i = index;">
+                <td class="no">{{i + 1}}</td>
+                <td>{{data.sphere}}</td>
+                <td>{{data.cylinder}}</td>
+                <td>{{data.price}}</td>
+                <td>{{data.stock}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

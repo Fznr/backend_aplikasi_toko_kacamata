@@ -1,0 +1,40 @@
+<h2>Pembelian</h2>
+<form (ngSubmit)="findPemeriksaan()">
+  <h3>Pemeriksaan Data</h3>
+  <label for="customerName">Nama:</label>
+  <input type="text" id="customerName" [(ngModel)]="pemeriksaanData.nama" name="customerName" required>
+  
+  <label for="tanggalPemeriksaan">Tanggal Pemeriksaan:</label>
+  <input type="date" id="tanggalPemeriksaan" [(ngModel)]="pemeriksaanData.tanggalPemeriksaan" name="tanggalPemeriksaan" required>
+
+  <Div class="button">
+    <button type="submit">Cari Data Pemeriksaan</button>
+  </Div>
+</form>
+
+<div class="table-div">
+  <table class="table table-bordered table-hover" *ngIf="pemeriksaanDatas.length > 0" >
+    <thead>
+    <tr class="stdr-thead tr-bulk-head">
+        <th scope="row">{{ 'No' }}</th>
+        <th scope="row">{{ 'Tanggal Pemeriksaan' }}</th>
+        <th scope="row">{{ 'Left Sphere' }}</th>
+        <th scope="row">{{ 'Left Cylinder' }}</th>
+        <th scope="row">{{ 'Right Sphere' }}</th>
+        <th scope="row">{{ 'Right Cylinder' }}</th>
+        <th scope="row">{{ 'Action' }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="table-bulk-list" *ngFor="let data of pemeriksaanDatas; let i = index;">
+        <td class="no">{{i + 1}}</td>
+        <td>{{convertEpochToDate(data.tanggalPemeriksaan)}}</td>
+        <td>{{data.leftSphere}}</td>
+        <td>{{data.leftCylinder}}</td>
+        <td>{{data.rightSphere}}</td>
+        <td>{{data.rightCylinder}}</td>
+        <td><button (click)="putPurchase(i, '/purchase-form')">Pembelian</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

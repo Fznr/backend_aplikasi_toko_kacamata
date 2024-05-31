@@ -1,0 +1,39 @@
+<h2>Eye Examination</h2>
+<form (ngSubmit)="findCustomer()">
+  <h3>Customer Data</h3>
+  <label for="customerName">Name:</label>
+  <input type="text" id="customerName" [(ngModel)]="customer.name" name="customerName" required>
+  
+  <label for="customerAddress">Address:</label>
+  <input type="text" id="customerAddress" [(ngModel)]="customer.address" name="customerAddress" required>
+
+  <Div class="button">
+    <button type="submit">Find Customer</button>
+    <button type="menu" (click)="redirectToRegister()">Register New Customer</button>
+  </Div>
+</form>
+
+<div class="table-div">
+  <table class="table table-bordered table-hover" *ngIf="customers.length > 0" >
+    <thead>
+    <tr class="stdr-thead tr-bulk-head">
+        <th scope="row">{{ 'No' }}</th>
+        <th scope="row">{{ 'Nama' }}</th>
+        <th scope="row">{{ 'Alamat' }}</th>
+        <th scope="row">{{ 'Tanggal Lahir' }}</th>
+        <th scope="row">{{ 'Tempat Lahir' }}</th>
+        <th scope="row">{{ 'Action' }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="table-bulk-list" *ngFor="let data of customers; let i = index;">
+        <td class="no">{{i + 1}}</td>
+        <td>{{data.nama}}</td>
+        <td>{{data.alamat}}</td>
+        <td>{{convertEpochToDate(data.tanggalLahir)}}</td>
+        <td>{{data.tempatLahir}}</td>
+        <td><button (click)="putPemeriksaanCustomer(i, '/eye-exam-form')">Periksa</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

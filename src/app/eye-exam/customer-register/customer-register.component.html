@@ -1,0 +1,19 @@
+<h2>Add Customer</h2>
+<div class="add-customer-div">
+    <form (ngSubmit)="addCustomer()">
+      <h3>Add Customer</h3>
+      <label for="nama">Nama:</label>
+      <input type="text" id="nama" [(ngModel)]="customer.nama" name="nama" required>
+      
+      <label for="alamat">Alamat:</label>
+      <input type="text" id="alamat" [(ngModel)]="customer.alamat" name="alamat" required>
+
+      <label for="tanggalLahir">Tanggal Lahir:</label>
+      <input type="date" id="tanggalLahir" [(ngModel)]="customer.tanggalLahir" name="tanggalLahir" required>
+
+      <label for="tempatLahir">Tempat Lahir:</label>
+      <input type="text" id="tempatLahir" [(ngModel)]="customer.tempatLahir" name="tempatLahir" required>
+      
+      <button type="submit">Add Customer</button>
+    </form>
+</div>

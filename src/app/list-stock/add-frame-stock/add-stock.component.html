@@ -1,0 +1,19 @@
+<h2>Add Frame Stock</h2>
+<div class="add-stock-div">
+    <form (ngSubmit)="addFrame()">
+      <h3>Add Frame</h3>
+      <label for="frameBrand">Brand:</label>
+      <input type="text" id="frameBrand" [(ngModel)]="frame.brand" name="frameBrand" required>
+      
+      <label for="frameType">Type:</label>
+      <input type="text" id="frameType" [(ngModel)]="frame.frameType" name="frameType" required>
+
+      <label for="price">Price:</label>
+      <input type="text" id="price" [(ngModel)]="frame.price" name="price" required>
+
+      <label for="stock">Stock:</label>
+      <input type="number" id="stock" [(ngModel)]="frame.stock" name="stock" required>
+      
+      <button type="submit">Add Frame</button>
+    </form>
+</div>

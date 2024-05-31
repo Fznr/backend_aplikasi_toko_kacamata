@@ -1,0 +1,19 @@
+<form (ngSubmit)="eyeExam()">
+    <h3>Eye Examination</h3>
+    <label for="customerName">Customer Name:</label>
+    <input type="text" id="customerName" [(ngModel)]="pemeriksaan.customerName" name="customerName" required disabled="true">
+
+    <label for="leftEyeSphere">Left Eye Sphere:</label>
+    <input type="number" id="leftEyeSphere" [(ngModel)]="pemeriksaan.leftSphere" name="leftEyeSphere" required>
+    
+    <label for="leftEyeCylinder">Left Eye Cylinder:</label>
+    <input type="number" id="leftEyeCylinder" [(ngModel)]="pemeriksaan.leftCylinder" name="leftEyeCylinder" required>
+    
+    <label for="rightEyeSphere">Right Eye Sphere:</label>
+    <input type="number" id="rightEyeSphere" [(ngModel)]="pemeriksaan.rightSphere" name="rightEyeSphere" required>
+    
+    <label for="rightEyeCylinder">Right Eye Cylinder:</label>
+    <input type="number" id="rightEyeCylinder" [(ngModel)]="pemeriksaan.rightCylinder" name="rightEyeCylinder" required>
+    
+    <button type="submit">Submit Examination</button>
+  </form>

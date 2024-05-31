@@ -1,0 +1,26 @@
+table {
+    width: 100%;
+    height: 60%;
+    overflow-x: auto;
+    overflow-y: auto;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(odd) {
+    background-color: #f2f2f2;
+  }
+  
+  tr:hover {
+    background-color: #dddddd;
+  }
+
+  .tables {
+    display: flex;
+    justify-content:space-between;
+  }

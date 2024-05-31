@@ -1,0 +1,92 @@
+<h2>Pembelian</h2>
+<div class="tables">
+    <div style="width: 47%; max-height: 40vh; overflow-y: auto;">
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr class="stdr-thead tr-bulk-head">
+                <th scope="row">{{ 'No' }}</th>
+                <th scope="row">{{ 'Brand' }}</th>
+                <th scope="row">{{ 'Frame Type' }}</th>
+                <th scope="row">{{ 'Price' }}</th>
+                <th scope="row">{{ 'Stock' }}</th>
+                <th scope="row" style="max-width: 35px;">{{ 'Pembelian' }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="table-bulk-list" *ngFor="let data of frameDatas; let i = index;">
+                <td class="no">{{i + 1}}</td>
+                <td>{{data.brand}}</td>
+                <td>{{data.frameType}}</td>
+                <td>{{data.price}}</td>
+                <td>{{data.stock}}</td>
+                <td style="max-width: 35px;">  
+                    <input type="number" id="quantity" [max]="data.stock" (input)="inputFrames($event, data.stock, i)" [(ngModel)]="frameDatas[i].quantity" name="customerName" required style="max-width: 100%;">pcs
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="width: 47%; max-height: 40vh; overflow-y: auto;">
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr class="stdr-thead tr-bulk-head">
+                <th scope="row">{{ 'No' }}</th>
+                <th scope="row">{{ 'Sphere' }}</th>
+                <th scope="row">{{ 'Cylinder' }}</th>
+                <th scope="row">{{ 'Price' }}</th>
+                <th scope="row">{{ 'Stock' }}</th>
+                <th scope="row" style="max-width: 35px;">{{ 'Pembelian' }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="table-bulk-list" *ngFor="let data of lensDatas; let i = index;">
+                <td class="no">{{i + 1}}</td>
+                <td>{{data.sphere}}</td>
+                <td>{{data.cylinder}}</td>
+                <td>{{data.price}}</td>
+                <td>{{data.stock}}</td>
+                <td style="max-width: 35px;">  
+                    <input type="number" id="quantity" [max]="data.stock" (input)="inputLens($event, data.stock, i)" [(ngModel)]="lensDatas[i].quantity" name="customerName" required style="max-width: 100%;">pcs
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<Div class="button">
+    <label for="discount">Discount:</label>
+    <input type="number" id="discount" [(ngModel)]="penjualan.diskon" name="discount" required style="max-width: 100%;">%
+    <button type="submit" (click)="getTotalBelanja()">Total Belanja</button>
+  </Div>
+
+<h4 *ngIf="penjualanItemDtos.length > 0">Summary</h4>
+<div style="width: 47%; max-height:30vh; overflow-y: auto;" *ngIf="penjualanItemDtos.length > 0">
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr class="stdr-thead tr-bulk-head">
+            <th scope="row">{{ 'Quantity' }}</th>
+            <th scope="row">{{ 'Description' }}</th>
+            <th scope="row">{{ 'Harga Satuan' }}</th>
+            <th scope="row">{{ 'Discount' }}</th>
+            <th scope="row">{{ 'Total Harga' }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="table-bulk-list" *ngFor="let data of penjualanItemDtos; let i = index;">
+            <td class="no">{{data.quantity}}</td>
+            <td>{{convertDescription(data, i)}}</td>
+            <td>{{data.hargaSatuan}}</td>
+            <td>{{penjualan.diskon}}</td>
+            <td>{{data.totalHarga}}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Total</td>
+            <td>{{penjualan.totalHarga}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <button type="submit" (click)="submitPurchase()">Submit Purchase</button>
+</div>
